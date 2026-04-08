@@ -59,7 +59,7 @@ export const MealTrays: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="px-6 py-2.5 bg-henria-gold text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-90 transition-opacity text-center">Appeler</a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFrAYVjLxIiOXI23RmhrBRo5GALTt73oknKaSAoxDnC3TMuA/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 border border-henria-gold text-henria-gold text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-henria-gold hover:text-white transition-all text-center">Commander</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcHRrS1Hv6dHkh5Ag8bhNQbwvq6-f5LjluxLCsbR0cSw_epg/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 border border-henria-gold text-henria-gold text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-henria-gold hover:text-white transition-all text-center">Commander</a>
             </div>
           </div>
         </div>
