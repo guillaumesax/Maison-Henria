@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
           {/* Phrase d'accroche - Rapprochée pour l'unité visuelle */}
           <div className="max-w-xl mx-auto mb-8 opacity-0 animate-[fadeIn_1s_ease-out_forwards_0.3s]">
             <p className="text-stone-500 text-lg md:text-xl lg:text-2xl leading-relaxed font-light tracking-wide">
-             Bientôt Disponibble : Plateaux repas & prestations traiteur d&apos;exception à Montélimar.
+             Bientôt Disponible : Plateaux repas & prestations traiteur d&apos;exception à Montélimar.
               <br />
               <span className="text-base md:text-lg italic opacity-80">Cuisine soignée, élaborée à partir de produit frais et locaux.</span>
             </p>
