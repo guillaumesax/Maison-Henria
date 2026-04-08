@@ -11,8 +11,8 @@ export const MoreChoice: React.FC = () => {
         </div>
         <div className="pt-2">
           <a 
-            href="#" 
-            target="https://docs.google.com/forms/d/e/1FAIpQLSdcHRrS1Hv6dHkh5Ag8bhNQbwvq6-f5LjluxLCsbR0cSw_epg/viewform?usp=header" 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdcHRrS1Hv6dHkh5Ag8bhNQbwvq6-f5LjluxLCsbR0cSw_epg/viewform?usp=header" 
+            target="_blank" 
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-henria-dark text-white text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-henria-gold transition-colors"
           >
