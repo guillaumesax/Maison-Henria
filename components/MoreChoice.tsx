@@ -12,7 +12,7 @@ export const MoreChoice: React.FC = () => {
         <div className="pt-2">
           <a 
             href="#" 
-            target="_blank" 
+            target="https://docs.google.com/forms/d/e/1FAIpQLSdcHRrS1Hv6dHkh5Ag8bhNQbwvq6-f5LjluxLCsbR0cSw_epg/viewform?usp=header" 
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-henria-dark text-white text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-henria-gold transition-colors"
           >
