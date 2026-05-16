@@ -9,7 +9,7 @@ export const ADDRESS = "Montélimar, Drôme";
 
 export const HERO_HOOK = "Plateaux repas & prestations traiteur à Montélimar. Cuisine soignée, élaborée à partir de produit frais et locaux.";
 
-export const PRESENTATION_TEXT = "Maison Henria – Traiteur est une entreprise indépendante basée à Montélimar, spécialisée dans la préparation et la livraison de plateaux repas. Chaque jour, nous proposons une cuisine soignée, élaborée à partir de produit frais et locaux, dans un esprit à la fois simple, généreux et maîtrisé. Notre objectif est d’offrir une solution de restauration fiable, qualitative et accessible.";
+export const PRESENTATION_TEXT = "Maison Henria – Traiteur est une entreprise indépendante basée à Montélimar, spécialisée dans la préparation et la livraison de plateaux repas. Chaque jour, nous proposons une cuisine soignée, élaborée à partir de produits frais et locaux, dans un esprit à la fois simple, généreux et maîtrisé. Notre objectif est d’offrir une solution de restauration fiable, qualitative et accessible.";
 
 export const MEAL_TRAYS_TEXT = "Maison Henria vous accompagne avec une formule de plateau repas complète, livrée chaude ou froide selon les besoins, et pensée pour convenir au plus grand nombre, y compris aux régimes alimentaires spécifiques sur demande.";
 
