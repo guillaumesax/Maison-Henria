@@ -27,6 +27,8 @@ export const Header: React.FC = () => {
           <img 
             src={logoUrl} 
             alt={BRAND_NAME} 
+            loading="eager"
+            decoding="async"
             className="h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>

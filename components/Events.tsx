@@ -18,6 +18,8 @@ export const Events: React.FC = () => {
            <img 
             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2669&auto=format&fit=crop" 
             alt="Événementiel Maison Henria" 
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover grayscale-[0.2]"
            />
         </div>

@@ -18,6 +18,8 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative h-screen min-h-[600px] w-full flex flex-col items-center justify-center bg-white">
+      <h1 className="sr-only">Maison Henria, plateaux repas et traiteur à Montélimar</h1>
+
       {/* Background avec Parallaxe Zoom */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-white/92 z-10"></div>
@@ -31,6 +33,9 @@ export const Hero: React.FC = () => {
           <img
             src={bgImageUrl}
             alt="Atmosphère Maison Henria"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
             className="w-full h-full object-cover grayscale-[0.3] opacity-15"
           />
         </div>
@@ -43,6 +48,9 @@ export const Hero: React.FC = () => {
           <img
             src={logoUrl}
             alt="Maison Henria - Traiteur"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
             className="w-72 md:w-[480px] lg:w-[580px] h-auto select-none animate-[logoBreathe_8s_ease-in-out_infinite_1.2s]"
           />
         </div>

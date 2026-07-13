@@ -7,6 +7,8 @@ export const VisualPause: React.FC = () => {
         <img 
           src="https://images.unsplash.com/photo-1534422298391-e4f8c170db0f?q=80&w=2669&auto=format&fit=crop" 
           alt="Plateau Repas" 
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-stone-900/20"></div>

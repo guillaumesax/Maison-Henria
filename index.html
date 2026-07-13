@@ -3,65 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maison Henria | Traiteur Montélimar</title>
-    <meta name="description" content="Maison Henria, traiteur à Montélimar. Cuisine soignée, prestations événementielles et plateaux repas." />
+    <title>Maison Henria | Plateaux repas & traiteur à Montélimar</title>
+    <meta name="description" content="Maison Henria, traiteur à Montélimar et alentours. Plateaux repas livrés, cuisine soignée à partir de produits frais et locaux, prestations événementielles sur devis." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Maison Henria" />
+    <meta name="theme-color" content="#1A1A1A" />
+    <meta name="geo.region" content="FR-26" />
+    <meta name="geo.placename" content="Montélimar" />
 
+    <link rel="canonical" href="https://maisonhenria.fr/" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
+    <meta property="og:locale" content="fr_FR" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Maison Henria | Traiteur Montélimar" />
-    <meta property="og:description" content="Cuisine soignée, prestations événementielles et plateaux repas à Montélimar." />
+    <meta property="og:title" content="Maison Henria | Plateaux repas & traiteur à Montélimar" />
+    <meta property="og:description" content="Plateaux repas livrés, cuisine fraîche et locale, prestations événementielles sur Montélimar et ses alentours." />
     <meta property="og:image" content="https://maisonhenria.fr/share.jpg" />
+    <meta property="og:image:alt" content="Maison Henria, traiteur à Montélimar" />
     <meta property="og:url" content="https://maisonhenria.fr/" />
     <meta property="og:site_name" content="Maison Henria" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Maison Henria | Traiteur Montélimar" />
-    <meta name="twitter:description" content="Cuisine soignée, prestations événementielles et plateaux repas à Montélimar." />
+    <meta name="twitter:title" content="Maison Henria | Plateaux repas & traiteur à Montélimar" />
+    <meta name="twitter:description" content="Plateaux repas livrés, cuisine fraîche et locale, prestations événementielles sur Montélimar et ses alentours." />
     <meta name="twitter:image" content="https://maisonhenria.fr/share.jpg" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              henria: {
-                gold: '#CBA135',
-                dark: '#1A1A1A',
-                white: '#FFFFFF',
-              }
-            },
-            fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Lato"', 'sans-serif'],
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: #ffffff; }
-      ::-webkit-scrollbar-thumb { background: #CBA135; }
-    </style>
-    <script type="importmap">
+    <script type="application/ld+json">
       {
-        "imports": {
-          "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-          "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-          "react": "https://esm.sh/react@^19.2.4",
-          "react/": "https://esm.sh/react@^19.2.4/"
+        "@context": "https://schema.org",
+        "@type": "Caterer",
+        "@id": "https://maisonhenria.fr/#business",
+        "name": "Maison Henria",
+        "url": "https://maisonhenria.fr/",
+        "image": "https://maisonhenria.fr/share.jpg",
+        "logo": "https://maisonhenria.fr/favicon.png",
+        "description": "Traiteur à Montélimar spécialisé dans les plateaux repas livrés, la cuisine soignée à partir de produits frais et locaux, et les prestations événementielles sur devis.",
+        "telephone": "+33759755579",
+        "email": "contact@maisonhenria.fr",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montélimar",
+          "addressRegion": "Drôme",
+          "addressCountry": "FR"
+        },
+        "areaServed": [
+          "Montélimar",
+          "Drôme",
+          "Le Teil",
+          "Saulce-sur-Rhône",
+          "Malataverne"
+        ],
+        "servesCuisine": "Cuisine française",
+        "priceRange": "€€",
+        "sameAs": [
+          "https://www.instagram.com/maison.henria/",
+          "https://www.facebook.com/profile.php?id=61582188444889"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Offres Maison Henria",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Plateau repas complet",
+              "price": "17.90",
+              "priceCurrency": "EUR",
+              "description": "Entrée, plat et dessert."
+            },
+            {
+              "@type": "Offer",
+              "name": "Prestations événementielles sur devis",
+              "description": "Mariages, baptêmes, anniversaires, événements professionnels et cours de cuisine à domicile."
+            }
+          ]
         }
       }
     </script>
-    <link rel="stylesheet" href="index.css" />
   </head>
   <body class="bg-white text-henria-dark antialiased font-sans selection:bg-henria-gold/20">
     <div id="root"></div>

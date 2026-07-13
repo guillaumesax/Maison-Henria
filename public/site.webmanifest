@@ -1,0 +1,18 @@
+{
+  "name": "Maison Henria",
+  "short_name": "Maison Henria",
+  "description": "Plateaux repas et prestations traiteur à Montélimar.",
+  "lang": "fr-FR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1A1A1A",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

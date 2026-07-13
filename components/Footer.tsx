@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
             <p className="mb-2">Plateaux repas Montélimar</p>
             <p>Prestations sur devis</p>
           </div>
-          <p className="normal-case tracking-normal text-xs md:text-sm leading-snug text-red-500 font-normal">
+          <p className="text-stone-500 leading-relaxed">
             *L’abus d’alcool est dangereux pour la santé, à consommer avec modération. La vente d’alcool est interdite aux mineurs de moins de 18 ans.
           </p>
           <div className="flex flex-col md:items-end gap-2">

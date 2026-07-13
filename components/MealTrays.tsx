@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MEAL_TRAYS_TEXT, MEAL_FORMULAS, MEAL_OPTIONS, PHONE_NUMBER, EMAIL_ADDRESS } from '../constants';
+import { MEAL_TRAYS_TEXT, MEAL_FORMULAS, MEAL_OPTIONS, PHONE_NUMBER } from '../constants';
 
 export const MealTrays: React.FC = () => {
   return (
@@ -10,6 +10,8 @@ export const MealTrays: React.FC = () => {
            <img 
             src="https://filedn.eu/lCrcyhrkkvYjfBEUTex82pz/Matthieu/visuel-plateau.png" 
             alt="Plateau Repas Maison Henria" 
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
            />
         </div>
