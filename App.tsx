@@ -9,7 +9,6 @@ import { Events } from './components/Events';
 import { Story } from './components/Story';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
-import { LegalNotice } from './components/LegalNotice';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
         <Story />
         <FaqSection />
         <ContactSection />
-        <LegalNotice />
       </main>
       <Footer />
     </div>
