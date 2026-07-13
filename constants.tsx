@@ -9,7 +9,7 @@ export const ADDRESS = "Montélimar, Drôme";
 
 export const HERO_HOOK = "Plateaux repas & prestations traiteur à Montélimar. Cuisine soignée, élaborée à partir de produit frais et locaux.";
 
-export const PRESENTATION_TEXT = "Maison Henria – Traiteur est une entreprise indépendante basée à Montélimar, spécialisée dans la préparation et la livraison de plateaux repas. Chaque jour, nous proposons une cuisine soignée, élaborée à partir de produits frais et locaux, dans un esprit à la fois simple, généreux et maîtrisé. Notre objectif est d’offrir une solution de restauration fiable, qualitative et accessible.";
+export const PRESENTATION_TEXT = "Maison Henria – Traiteur est une entreprise indépendante opérant sur Montélimar et ses alentours, spécialisée dans la préparation et la livraison de plateaux repas. Chaque jour, nous proposons une cuisine soignée, élaborée à partir de produits frais et locaux. Notre objectif est d’offrir une solution de restauration fiable, qualitative et accessible.";
 
 export const MEAL_TRAYS_TEXT = "Maison Henria vous accompagne avec une formule de plateau repas complète, livrée chaude ou froide selon les besoins, et pensée pour convenir au plus grand nombre, y compris aux régimes alimentaires spécifiques sur demande.";
 
@@ -17,14 +17,15 @@ export const MEAL_FORMULAS = [
   {
     name: "Plateau Repas Complet",
     description: "Entrée, Plat, Dessert",
-    price: "17,50"
+    price: "17,90"
   }
 ];
 
 export const MEAL_OPTIONS = [
-  { name: "Option Fromage", price: "3,50" },
-  { name: "Bouteille d’eau", price: "1,00" },
-  { name: "Soft", price: "2,00" }
+  { name: "Option Fromage", price: "3,00" },
+  { name: "Bouteille d’eau 50cl", price: "1,00" },
+  { name: "Soft 33cl", price: "2,00" },
+  { name: "Bouteille de vin* 75cl", price: "11,50" }
 ];
 
 export const SUBSCRIPTIONS = [
@@ -32,7 +33,7 @@ export const SUBSCRIPTIONS = [
     title: "Hebdomadaire",
     freq: "1 livraison / semaine (jour fixe)",
     engagement: "Engagement 1 mois",
-    price: "16,50"
+    price: "16,90"
   },
   {
     title: "Bi-hebdomadaire",
