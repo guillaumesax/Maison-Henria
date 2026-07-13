@@ -2,20 +2,28 @@ import React from 'react';
 import { BRAND_NAME, EMAIL_ADDRESS, PHONE_NUMBER } from '../constants';
 
 const administrativeItems = [
-  ['Dénomination sociale', 'À compléter'],
-  ['Forme juridique', 'À compléter'],
+  ['Dénomination sociale', 'MAISON HENRIA'],
+  ['Forme juridique', 'EURL'],
+  ['Capital social', '1 000 €'],
   ['SIRET', 'À compléter'],
-  ['RCS / RM', 'À compléter si applicable'],
+  ['RCS', 'Aubenas — numéro à compléter après immatriculation'],
   ['Numéro de TVA intracommunautaire', 'À compléter si applicable'],
-  ['Adresse du siège social', 'À compléter'],
+  ['Adresse du siège social', '8, avenue du Teil, 07400 Rochemaure'],
+  ['Gérant', 'M. MOSTAFA Matthieu Sylvain Éric'],
   ['Responsable de la publication', 'À compléter'],
 ];
 
 export const LegalNotice: React.FC = () => {
   return (
-    <section id="mentions-legales" className="bg-henria-dark text-stone-400 border-t border-white/5 py-16 md:py-20">
+    <main className="min-h-screen bg-henria-dark text-stone-400 py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-4xl">
+          <a
+            href="/"
+            className="inline-flex mb-12 text-[10px] uppercase tracking-[0.3em] text-stone-400 hover:text-henria-gold transition-colors"
+          >
+            ← Retour à l’accueil
+          </a>
           <p className="text-[10px] uppercase tracking-[0.4em] text-henria-gold font-bold mb-4">Informations légales</p>
           <h2 className="font-serif text-3xl md:text-4xl text-white mb-8">Mentions légales</h2>
 
@@ -89,6 +97,6 @@ export const LegalNotice: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 };
