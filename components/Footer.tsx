@@ -12,14 +12,14 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <p className="text-stone-300 mb-4">Nos Services</p>
-            <p className="mb-2">Plateaux repas Montélimar</p>
-            <p>Prestations sur devis</p>
+            <a href="#plateaux-repas" className="block mb-2 hover:text-white transition-colors">Plateaux repas Montélimar</a>
+            <a href="#evenementiel" className="block hover:text-white transition-colors">Prestations sur devis</a>
           </div>
           <p className="text-stone-500 leading-relaxed">
             *L’abus d’alcool est dangereux pour la santé, à consommer avec modération. La vente d’alcool est interdite aux mineurs de moins de 18 ans.
           </p>
           <div className="flex flex-col md:items-end gap-2">
-            <a href="#" className="hover:text-white transition-colors">Mentions Légales</a>
+            <a href="#mentions-legales" className="hover:text-white transition-colors">Mentions Légales</a>
             <p className="text-stone-700 mt-4 italic">© {new Date().getFullYear()} Maison Henria — Traiteur</p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { SUBSCRIPTIONS } from '../constants';
 
 export const Subscriptions: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section id="commandes-regulieres" className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="font-serif text-3xl md:text-4xl mt-2">Commandes régulières</h2>

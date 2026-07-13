@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
           : 'bg-transparent py-4 md:py-6'
       }`}
     >
-      <a href="#" className="flex items-center group">
+      <a href="/" className="flex items-center group" aria-label="Accueil Maison Henria">
         <div className={`transition-all duration-500 flex items-center overflow-hidden ${isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-24'}`}>
           <img 
             src={logoUrl} 
@@ -34,9 +34,19 @@ export const Header: React.FC = () => {
         </div>
       </a>
       
-      <nav className="flex gap-4 md:gap-8 items-center">
-        <button 
-          onClick={() => document.getElementById('evenementiel')?.scrollIntoView({ behavior: 'smooth' })}
+      <nav className="flex flex-wrap justify-end gap-3 md:gap-8 items-center" aria-label="Navigation principale">
+        <a
+          href="#plateaux-repas"
+          className={`text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-bold pb-1 border-b-2 transition-all duration-300 ${
+            isScrolled 
+              ? 'text-henria-dark border-henria-gold' 
+              : 'text-henria-dark md:text-stone-700 border-transparent hover:border-henria-gold'
+          }`}
+        >
+          Plateaux repas
+        </a>
+        <a
+          href="#evenementiel"
           className={`text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-bold pb-1 border-b-2 transition-all duration-300 ${
             isScrolled 
               ? 'text-henria-dark border-henria-gold' 
@@ -44,9 +54,9 @@ export const Header: React.FC = () => {
           }`}
         >
           Événementiel
-        </button>
-        <button 
-          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        </a>
+        <a
+          href="#contact"
           className={`text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-bold pb-1 border-b-2 transition-all duration-300 ${
             isScrolled 
               ? 'text-henria-dark border-henria-gold' 
@@ -54,7 +64,7 @@ export const Header: React.FC = () => {
           }`}
         >
           Contact & Devis
-        </button>
+        </a>
       </nav>
     </header>
   );

@@ -4,12 +4,12 @@ import { MEAL_TRAYS_TEXT, MEAL_FORMULAS, MEAL_OPTIONS, PHONE_NUMBER } from '../c
 
 export const MealTrays: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 bg-stone-50">
+    <section id="plateaux-repas" className="py-12 md:py-16 bg-stone-50">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
         <div className="aspect-[16/10] md:aspect-[4/5] overflow-hidden bg-stone-200 shadow-sm rounded-sm">
            <img 
             src="/plateau-repas-maison-henria.jpg"
-            alt="Plateau Repas Maison Henria" 
+            alt="Plateau repas complet Maison Henria livré à Montélimar" 
             loading="lazy"
             decoding="async"
             className="w-full h-full object-cover"

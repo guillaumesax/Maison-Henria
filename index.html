@@ -44,57 +44,134 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Caterer",
-        "@id": "https://maisonhenria.fr/#business",
-        "name": "Maison Henria",
-        "url": "https://maisonhenria.fr/",
-        "image": "https://maisonhenria.fr/share.jpg",
-        "logo": "https://maisonhenria.fr/favicon.png",
-        "description": "Traiteur à Montélimar spécialisé dans les plateaux repas livrés, la cuisine soignée à partir de produits frais et locaux, et les prestations événementielles sur devis.",
-        "telephone": "+33759755579",
-        "email": "contact@maisonhenria.fr",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Montélimar",
-          "addressRegion": "Drôme",
-          "addressCountry": "FR"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 44.5588,
-          "longitude": 4.7509
-        },
-        "areaServed": [
-          "Montélimar",
-          "Drôme",
-          "Le Teil",
-          "Saulce-sur-Rhône",
-          "Malataverne"
-        ],
-        "servesCuisine": "Cuisine française",
-        "priceRange": "€€",
-        "sameAs": [
-          "https://www.instagram.com/maison.henria/",
-          "https://www.facebook.com/profile.php?id=61582188444889"
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Offres Maison Henria",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "Plateau repas complet",
-              "price": "17.90",
-              "priceCurrency": "EUR",
-              "description": "Entrée, plat et dessert."
-            },
-            {
-              "@type": "Offer",
-              "name": "Prestations événementielles sur devis",
-              "description": "Mariages, baptêmes, anniversaires, événements professionnels et cours de cuisine à domicile."
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://maisonhenria.fr/#website",
+            "name": "Maison Henria",
+            "url": "https://maisonhenria.fr/",
+            "inLanguage": "fr-FR",
+            "publisher": {
+              "@id": "https://maisonhenria.fr/#business"
             }
-          ]
-        }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://maisonhenria.fr/#webpage",
+            "url": "https://maisonhenria.fr/",
+            "name": "Maison Henria | Plateaux repas & traiteur à Montélimar",
+            "description": "Maison Henria, traiteur à Montélimar et alentours. Plateaux repas livrés, cuisine soignée à partir de produits frais et locaux, prestations événementielles sur devis.",
+            "isPartOf": {
+              "@id": "https://maisonhenria.fr/#website"
+            },
+            "about": {
+              "@id": "https://maisonhenria.fr/#business"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://maisonhenria.fr/#primaryimage"
+            },
+            "inLanguage": "fr-FR"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://maisonhenria.fr/#primaryimage",
+            "url": "https://maisonhenria.fr/share.jpg",
+            "contentUrl": "https://maisonhenria.fr/share.jpg",
+            "caption": "Maison Henria, traiteur à Montélimar"
+          },
+          {
+            "@type": ["LocalBusiness", "FoodEstablishment", "Caterer"],
+            "@id": "https://maisonhenria.fr/#business",
+            "name": "Maison Henria",
+            "url": "https://maisonhenria.fr/",
+            "image": "https://maisonhenria.fr/share.jpg",
+            "logo": "https://maisonhenria.fr/favicon.png",
+            "description": "Traiteur à Montélimar spécialisé dans les plateaux repas livrés, la cuisine soignée à partir de produits frais et locaux, et les prestations événementielles sur devis.",
+            "telephone": "+33759755579",
+            "email": "contact@maisonhenria.fr",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Montélimar",
+              "addressRegion": "Drôme",
+              "addressCountry": "FR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 44.5588,
+              "longitude": 4.7509
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Montélimar"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Drôme"
+              },
+              {
+                "@type": "City",
+                "name": "Le Teil"
+              },
+              {
+                "@type": "City",
+                "name": "Saulce-sur-Rhône"
+              },
+              {
+                "@type": "City",
+                "name": "Malataverne"
+              }
+            ],
+            "servesCuisine": "Cuisine française",
+            "priceRange": "€€",
+            "sameAs": [
+              "https://www.instagram.com/maison.henria/",
+              "https://www.facebook.com/profile.php?id=61582188444889"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Offres Maison Henria",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "name": "Plateau repas complet",
+                  "price": "17.90",
+                  "priceCurrency": "EUR",
+                  "description": "Entrée, plat et dessert.",
+                  "areaServed": "Montélimar et alentours"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Prestations événementielles sur devis",
+                  "description": "Mariages, baptêmes, anniversaires, événements professionnels et cours de cuisine à domicile.",
+                  "areaServed": "Drôme et alentours"
+                }
+              ]
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://maisonhenria.fr/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Comment commander ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Vous pouvez commander par téléphone ou par email. Pour les plateaux repas du midi, merci de commander avant 10h."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quels sont les modes de règlement ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nous acceptons les virements, cartes bancaires et facturation mensuelle pour les entreprises."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>
