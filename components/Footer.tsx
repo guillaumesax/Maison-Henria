@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
             *L’abus d’alcool est dangereux pour la santé, à consommer avec modération. La vente d’alcool est interdite aux mineurs de moins de 18 ans.
           </p>
           <div className="flex flex-col md:items-end gap-2">
-            <a href="#mentions-legales" className="hover:text-white transition-colors">Mentions Légales</a>
+            <a href="/mentions-legales.html" className="hover:text-white transition-colors">Mentions Légales</a>
             <p className="text-stone-700 mt-4 italic">© {new Date().getFullYear()} Maison Henria — Traiteur</p>
           </div>
         </div>
