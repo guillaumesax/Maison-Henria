@@ -3,10 +3,8 @@ import { PHONE_NUMBER, EMAIL_ADDRESS } from '../constants';
 
 export const Hero: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
-  const logoUrl =
-    'https://filedn.eu/lCrcyhrkkvYjfBEUTex82pz/Matthieu/81B744F8-354C-4635-914E-0CD7B8FAA0BC.PNG';
-  const bgImageUrl =
-    'https://filedn.eu/lCrcyhrkkvYjfBEUTex82pz/Matthieu/Gemini_Generated_Image_9bc4eo9bc4eo9bc4.png';
+  const logoUrl = '/logo-maison-henria.png';
+  const bgImageUrl = '/ambiance-maison-henria.jpg';
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);

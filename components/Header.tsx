@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const logoUrl = "https://filedn.eu/lCrcyhrkkvYjfBEUTex82pz/Matthieu/81B744F8-354C-4635-914E-0CD7B8FAA0BC.PNG";
+  const logoUrl = "/logo-maison-henria.png";
 
   return (
     <header 

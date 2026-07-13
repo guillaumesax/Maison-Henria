@@ -8,7 +8,7 @@ export const MealTrays: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
         <div className="aspect-[16/10] md:aspect-[4/5] overflow-hidden bg-stone-200 shadow-sm rounded-sm">
            <img 
-            src="https://filedn.eu/lCrcyhrkkvYjfBEUTex82pz/Matthieu/visuel-plateau.png" 
+            src="/plateau-repas-maison-henria.jpg"
             alt="Plateau Repas Maison Henria" 
             loading="lazy"
             decoding="async"

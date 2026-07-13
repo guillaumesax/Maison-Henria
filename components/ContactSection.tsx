@@ -3,6 +3,34 @@ import React from 'react';
 import { PHONE_NUMBER, EMAIL_ADDRESS, BRAND_NAME } from '../constants';
 
 export const ContactSection: React.FC = () => {
+  const handleQuoteRequest = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const project = String(formData.get('project') || '').trim();
+
+    const subject = encodeURIComponent(`Demande de devis - ${name || 'Maison Henria'}`);
+    const body = encodeURIComponent(
+      [
+        'Bonjour,',
+        '',
+        'Je souhaite recevoir un devis pour le projet suivant :',
+        '',
+        project || '[Votre projet]',
+        '',
+        'Mes coordonnées :',
+        `Nom : ${name || '[Nom complet]'}`,
+        `Email : ${email || '[Email]'}`,
+        '',
+        'Merci.',
+      ].join('\n')
+    );
+
+    window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section id="contact" className="py-16 md:py-24 bg-henria-dark text-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -32,10 +60,10 @@ export const ContactSection: React.FC = () => {
 
           <div className="bg-white/5 p-6 md:p-10 border border-white/10 rounded-sm">
             <h3 className="font-serif text-xl md:text-2xl mb-4">Demande de devis</h3>
-            <form className="space-y-4">
-              <input type="text" placeholder="Nom complet" className="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-henria-gold transition-colors placeholder:text-stone-600 text-sm" />
-              <input type="email" placeholder="Email" className="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-henria-gold transition-colors placeholder:text-stone-600 text-sm" />
-              <textarea placeholder="Votre projet" rows={2} className="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-henria-gold transition-colors placeholder:text-stone-600 resize-none text-sm"></textarea>
+            <form className="space-y-4" onSubmit={handleQuoteRequest}>
+              <input name="name" type="text" placeholder="Nom complet" required className="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-henria-gold transition-colors placeholder:text-stone-600 text-sm" />
+              <input name="email" type="email" placeholder="Email" required className="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-henria-gold transition-colors placeholder:text-stone-600 text-sm" />
+              <textarea name="project" placeholder="Votre projet" rows={2} required className="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-henria-gold transition-colors placeholder:text-stone-600 resize-none text-sm"></textarea>
               <button type="submit" className="w-full py-3.5 bg-henria-gold text-white text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white hover:text-henria-dark transition-all">Envoyer</button>
             </form>
           </div>
