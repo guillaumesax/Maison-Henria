@@ -7,7 +7,6 @@ import { MoreChoice } from './components/MoreChoice';
 import { Subscriptions } from './components/Subscriptions';
 import { Events } from './components/Events';
 import { Story } from './components/Story';
-import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 
@@ -23,7 +22,6 @@ function App() {
         <Subscriptions />
         <Events />
         <Story />
-        <FaqSection />
         <ContactSection />
       </main>
       <Footer />
