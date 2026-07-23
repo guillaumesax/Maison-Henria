@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           legalNotice: path.resolve(__dirname, 'mentions-legales.html'),
+          termsAndConditions: path.resolve(__dirname, 'cgv.html'),
         },
       },
     },
