@@ -20,6 +20,7 @@ export const Footer: React.FC = () => {
           </p>
           <div className="flex flex-col md:items-end gap-2">
             <a href="/mentions-legales.html" className="hover:text-white transition-colors">Mentions Légales</a>
+            <a href="/cgv.html" className="hover:text-white transition-colors">CGV</a>
             <p className="text-stone-700 mt-4 italic">© {new Date().getFullYear()} Maison Henria — Traiteur</p>
           </div>
         </div>
