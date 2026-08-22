@@ -61,8 +61,11 @@ export const MealTrays: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="px-6 py-2.5 bg-henria-gold text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-90 transition-opacity text-center">Appeler</a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcHRrS1Hv6dHkh5Ag8bhNQbwvq6-f5LjluxLCsbR0cSw_epg/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 border border-henria-gold text-henria-gold text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-henria-gold hover:text-white transition-all text-center">Commander</a>
+              <button type="button" disabled className="px-6 py-2.5 border border-stone-300 text-stone-400 bg-stone-100 text-[10px] uppercase tracking-[0.2em] font-bold cursor-not-allowed text-center">Commander</button>
             </div>
+            <p className="text-stone-400 text-xs italic font-light">
+              La commande en ligne sera bientôt disponible sur le site. Les commandes sont possibles actuellement par téléphone.
+            </p>
           </div>
         </div>
       </div>
