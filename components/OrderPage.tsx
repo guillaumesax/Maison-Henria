@@ -4,6 +4,7 @@ import { Footer } from './Footer';
 import { EMAIL_ADDRESS, ORDER_PRODUCTS, PHONE_NUMBER } from '../constants';
 
 const products = ORDER_PRODUCTS;
+const formulaDrinks = products.filter(product => product.category === 'Boissons');
 const inputClass = 'w-full min-w-0 rounded-sm border border-stone-300 bg-white px-4 py-3 text-base text-henria-dark focus:outline-none focus:ring-2 focus:ring-henria-gold focus:border-henria-gold';
 
 // The ordering deadline follows Maison Henria's timezone, wherever the customer is.
@@ -35,8 +36,13 @@ export const OrderPage: React.FC = () => {
       setError('Choisissez au moins un article et renseignez des quantités entières positives ou nulles.');
       return;
     }
-    if (products.some((product, index) => product.detailsLabel && quantities[index] > 0 && !value(`details-${index}`))) {
-      setError('Précisez les boissons souhaitées pour la formule plateau + boisson + fromage.');
+    const drinkQuantities = (index: number) => formulaDrinks.map((_, drinkIndex) => Number(data.get(`formula-drink-${index}-${drinkIndex}`) || 0));
+    if (products.some((product, index) => {
+      if (!product.detailsLabel || quantities[index] === 0) return false;
+      const drinks = drinkQuantities(index);
+      return drinks.some(quantity => !Number.isSafeInteger(quantity) || quantity < 0) || drinks.reduce((sum, quantity) => sum + quantity, 0) !== quantities[index];
+    })) {
+      setError('Choisissez exactement une boisson par formule à 21 € : le nombre de boissons incluses doit être égal au nombre de formules.');
       return;
     }
     const earliest = earliestDeliveryDate();
@@ -53,7 +59,7 @@ export const OrderPage: React.FC = () => {
     const body = [
       'Bonjour Maison Henria,', '', 'Je souhaite passer la commande suivante :', '',
       `Date de livraison souhaitée : ${date}`, '',
-      ...products.flatMap((product, index) => quantities[index] > 0 ? [`${quantities[index]} × ${product.name}${product.description ? ` (${product.description})` : ''} — ${product.price} € TTC / unité`, ...(product.detailsLabel && value(`details-${index}`) ? [`  ${product.detailsLabel} : ${value(`details-${index}`)}`] : [])] : []),
+      ...products.flatMap((product, index) => quantities[index] > 0 ? [`${quantities[index]} × ${product.name}${product.description ? ` (${product.description})` : ''} — ${product.price} € TTC / unité`, ...(product.detailsLabel ? formulaDrinks.flatMap((drink, drinkIndex) => drinkQuantities(index)[drinkIndex] > 0 ? [`  Boisson incluse : ${drinkQuantities(index)[drinkIndex]} × ${drink.name}`] : []) : [])] : []),
       '', 'Coordonnées et livraison :',
       `Nom : ${value('lastName')}`, `Prénom : ${value('firstName')}`,
       ...(value('company') ? [`Entreprise : ${value('company')}`] : []),
@@ -110,11 +116,18 @@ export const OrderPage: React.FC = () => {
                 </div>
               </div>
               {product.detailsLabel && selectedQuantities[index] > 0 && (
-                <div className="pb-5 pt-3">
-                  <label htmlFor={`details-${index}`} className="block text-sm mb-2">{product.detailsLabel} *</label>
-                  <input id={`details-${index}`} name={`details-${index}`} required maxLength={250} className={inputClass} aria-describedby={`details-help-${index}`} />
-                  <p id={`details-help-${index}`} className="text-xs text-stone-500 mt-2">Pour plusieurs formules, indiquez la répartition des boissons. Ne les ajoutez pas une seconde fois dans les boissons à l’unité.</p>
-                </div>
+                <fieldset className="bg-stone-50 p-4 md:p-6 my-4 border border-stone-200">
+                  <legend className="text-sm font-bold px-2">Boissons incluses dans vos formules *</legend>
+                  <p id={`details-help-${index}`} className="text-sm text-stone-600 mb-4">Répartissez vos {selectedQuantities[index]} boisson(s) ci-dessous : une par formule, sans supplément. Ne les ajoutez pas une seconde fois dans les boissons à l’unité.</p>
+                  <div className="space-y-3">
+                    {formulaDrinks.map((drink, drinkIndex) => (
+                      <div key={drink.name} className="flex items-center justify-between gap-4">
+                        <label htmlFor={`formula-drink-${index}-${drinkIndex}`} className="text-sm">{drink.name}</label>
+                        <input id={`formula-drink-${index}-${drinkIndex}`} name={`formula-drink-${index}-${drinkIndex}`} aria-label={`Boisson incluse — ${drink.name}`} aria-describedby={`details-help-${index}`} type="number" min="0" max={selectedQuantities[index]} step="1" defaultValue="0" required className={`${inputClass} !w-24 shrink-0 text-center`} />
+                      </div>
+                    ))}
+                  </div>
+                </fieldset>
               )}
               </React.Fragment>
             ))}
