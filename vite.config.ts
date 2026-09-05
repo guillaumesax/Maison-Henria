@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: path.resolve(__dirname, 'index.html'),
+          order: path.resolve(__dirname, 'commande.html'),
           legalNotice: path.resolve(__dirname, 'mentions-legales.html'),
           termsAndConditions: path.resolve(__dirname, 'cgv.html'),
         },

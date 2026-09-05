@@ -61,14 +61,14 @@ export const VISUAL_TEXT = "La passion du goût, l'élégance du service.";
 
 // Fix: Added missing delivery constants for DeliveryInfo
 export const DELIVERY_ZONE = "Montélimar et agglomération (Le Teil, Saulce-sur-Rhône, Malataverne).";
-export const ORDER_DEADLINE = "10h00 pour le jour même";
+export const ORDER_DEADLINE = "La veille avant 15h";
 export const MIN_ORDER = "1 plateau repas";
 
 // Fix: Added missing FAQS for FaqSection
 export const FAQS = [
   {
     question: "Comment commander ?",
-    answer: "Vous pouvez commander par téléphone ou par email. Pour les plateaux repas du midi, merci de commander avant 10h."
+    answer: "Vous pouvez commander par téléphone ou par e-mail au plus tard la veille avant 15h. Seule notre confirmation par retour de mail valide définitivement votre commande."
   },
   {
     question: "Quels sont les modes de règlement ?",

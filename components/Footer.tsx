@@ -12,8 +12,8 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <p className="text-stone-300 mb-4">Nos Services</p>
-            <a href="#plateaux-repas" className="block mb-2 hover:text-white transition-colors">Plateaux repas Montélimar</a>
-            <a href="#evenementiel" className="block hover:text-white transition-colors">Prestations sur devis</a>
+            <a href="/#plateaux-repas" className="block mb-2 hover:text-white transition-colors">Plateaux repas Montélimar</a>
+            <a href="/#evenementiel" className="block hover:text-white transition-colors">Prestations sur devis</a>
           </div>
           <p className="text-stone-500 leading-relaxed">
             *L’abus d’alcool est dangereux pour la santé, à consommer avec modération. La vente d’alcool est interdite aux mineurs de moins de 18 ans.

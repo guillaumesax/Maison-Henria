@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
       
       <nav className="flex flex-wrap justify-end gap-3 md:gap-8 items-center" aria-label="Navigation principale">
         <a
-          href="#plateaux-repas"
+          href="/#plateaux-repas"
           className={`text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-bold pb-1 border-b-2 transition-all duration-300 ${
             isScrolled 
               ? 'text-henria-dark border-henria-gold' 
@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
           Plateaux repas
         </a>
         <a
-          href="#evenementiel"
+          href="/#evenementiel"
           className={`text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-bold pb-1 border-b-2 transition-all duration-300 ${
             isScrolled 
               ? 'text-henria-dark border-henria-gold' 
@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
           Événementiel
         </a>
         <a
-          href="#contact"
+          href="/#contact"
           className={`text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-bold pb-1 border-b-2 transition-all duration-300 ${
             isScrolled 
               ? 'text-henria-dark border-henria-gold' 

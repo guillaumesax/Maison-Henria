@@ -64,7 +64,7 @@ export const MealTrays: React.FC = () => {
               <button type="button" disabled className="px-6 py-2.5 border border-stone-300 text-stone-400 bg-stone-100 text-[10px] uppercase tracking-[0.2em] font-bold cursor-not-allowed text-center">Commander</button>
             </div>
             <p className="text-stone-400 text-xs italic font-light">
-              La commande en ligne sera bientôt disponible sur le site. Les commandes sont possibles actuellement par téléphone.
+              Envoyez votre demande au plus tard la veille avant 15h. Votre commande est validée uniquement après notre confirmation par e-mail.
             </p>
           </div>
         </div>
