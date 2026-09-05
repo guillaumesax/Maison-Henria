@@ -28,6 +28,31 @@ export const MEAL_OPTIONS = [
   { name: "Bouteille de vin* 75cl", price: "11,50" }
 ];
 
+// The ordering catalogue separates each choice so quantities are unambiguous in the email.
+export const ORDER_PRODUCTS: {
+  name: string;
+  price: string;
+  category: string;
+  description?: string;
+  detailsLabel?: string;
+}[] = [
+  { name: "Plateau repas", description: "Entrée, plat, dessert", price: "17,90", category: "Nos repas & formules" },
+  { name: "Grande salade + dessert", price: "14,90", category: "Nos repas & formules" },
+  { name: "Plat du jour", price: "10,90", category: "Nos repas & formules" },
+  { name: "Grande salade", price: "10,90", category: "Nos repas & formules" },
+  { name: "Dessert du jour", price: "4,50", category: "Nos repas & formules" },
+  { name: "Formule plateau + boisson + fromage", description: "Entrée, plat, fromage, dessert et boisson", price: "21,00", category: "Nos repas & formules", detailsLabel: "Boisson(s) souhaitée(s) pour la formule" },
+  { name: "Fromage — Comté 18 mois d’affinage", price: "3,00", category: "Pour compléter votre repas" },
+  { name: "Eau plate 50cl", price: "1,00", category: "Boissons" },
+  { name: "Eau gazeuse 50cl", price: "1,00", category: "Boissons" },
+  { name: "Coca 33cl", price: "2,00", category: "Boissons" },
+  { name: "Coca zéro 33cl", price: "2,00", category: "Boissons" },
+  { name: "Ice tea 33cl", price: "2,00", category: "Boissons" },
+  { name: "Vin rouge* — bouteille 75cl", price: "11,50", category: "Vins" },
+  { name: "Vin blanc* — bouteille 75cl", price: "11,50", category: "Vins" },
+  { name: "Vin rosé* — bouteille 75cl", price: "11,50", category: "Vins" },
+];
+
 export const SUBSCRIPTIONS = [
   {
     title: "Hebdomadaire",

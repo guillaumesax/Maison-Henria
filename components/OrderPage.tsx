@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { EMAIL_ADDRESS, MEAL_FORMULAS, MEAL_OPTIONS, PHONE_NUMBER } from '../constants';
+import { EMAIL_ADDRESS, ORDER_PRODUCTS, PHONE_NUMBER } from '../constants';
 
-const products = [...MEAL_FORMULAS, ...MEAL_OPTIONS];
+const products = ORDER_PRODUCTS;
 const inputClass = 'w-full min-w-0 rounded-sm border border-stone-300 bg-white px-4 py-3 text-base text-henria-dark focus:outline-none focus:ring-2 focus:ring-henria-gold focus:border-henria-gold';
 
 // The ordering deadline follows Maison Henria's timezone, wherever the customer is.
@@ -17,6 +17,7 @@ export function earliestDeliveryDate(now = new Date()) {
 }
 
 export const OrderPage: React.FC = () => {
+  const [selectedQuantities, setSelectedQuantities] = useState<Record<number, number>>({});
   const [error, setError] = useState('');
   const [draft, setDraft] = useState('');
   const [copied, setCopied] = useState(false);
@@ -34,6 +35,10 @@ export const OrderPage: React.FC = () => {
       setError('Choisissez au moins un article et renseignez des quantités entières positives ou nulles.');
       return;
     }
+    if (products.some((product, index) => product.detailsLabel && quantities[index] > 0 && !value(`details-${index}`))) {
+      setError('Précisez les boissons souhaitées pour la formule plateau + boisson + fromage.');
+      return;
+    }
     const earliest = earliestDeliveryDate();
     setMinimumDate(earliest);
     if (value('delivery') < earliest) {
@@ -48,7 +53,7 @@ export const OrderPage: React.FC = () => {
     const body = [
       'Bonjour Maison Henria,', '', 'Je souhaite passer la commande suivante :', '',
       `Date de livraison souhaitée : ${date}`, '',
-      ...products.flatMap((product, index) => quantities[index] > 0 ? [`${quantities[index]} × ${product.name} — ${product.price} € TTC / unité`] : []),
+      ...products.flatMap((product, index) => quantities[index] > 0 ? [`${quantities[index]} × ${product.name}${product.description ? ` (${product.description})` : ''} — ${product.price} € TTC / unité`, ...(product.detailsLabel && value(`details-${index}`) ? [`  ${product.detailsLabel} : ${value(`details-${index}`)}`] : [])] : []),
       '', 'Coordonnées et livraison :',
       `Nom : ${value('lastName')}`, `Prénom : ${value('firstName')}`,
       ...(value('company') ? [`Entreprise : ${value('company')}`] : []),
@@ -89,17 +94,29 @@ export const OrderPage: React.FC = () => {
             <h2 className="font-serif text-2xl md:text-3xl mb-2"><span className="text-henria-gold">01.</span> Votre sélection</h2>
             <p className="text-sm text-stone-500 mb-6">Prix unitaires TTC. Indiquez une quantité pour chaque article souhaité.</p>
             {products.map((product, index) => (
-              <div key={product.name} className="flex items-center justify-between gap-4 py-5 border-b border-stone-100 last:border-0">
+              <React.Fragment key={product.name}>
+              {(index === 0 || products[index - 1].category !== product.category) && (
+                <h3 className="mt-8 mb-2 text-xs uppercase tracking-[0.2em] text-stone-600 font-bold border-b border-henria-gold pb-3">{product.category}</h3>
+              )}
+              <div className="flex items-center justify-between gap-4 py-5 border-b border-stone-100">
                 <div>
                   <label htmlFor={`quantity-${index}`} className="font-serif text-lg md:text-xl">{product.name}</label>
-                  {'description' in product && <p className="text-sm text-stone-500 mt-1">{product.description}</p>}
+                  {product.description && <p className="text-sm text-stone-500 mt-1">{product.description}</p>}
                   <p className="mt-2 text-sm text-stone-600">{product.price} € TTC</p>
                 </div>
                 <div className="w-24 shrink-0">
                   <label htmlFor={`quantity-${index}`} className="block text-xs text-stone-500 mb-2">Quantité</label>
-                  <input id={`quantity-${index}`} name={`quantity-${index}`} aria-label={`Quantité — ${product.name}`} type="number" min="0" step="1" defaultValue="0" required className={`${inputClass} text-center`} />
+                  <input id={`quantity-${index}`} name={`quantity-${index}`} aria-label={`Quantité — ${product.name}`} type="number" min="0" step="1" defaultValue="0" onChange={event => setSelectedQuantities(previous => ({ ...previous, [index]: Number(event.target.value) }))} required className={`${inputClass} text-center`} />
                 </div>
               </div>
+              {product.detailsLabel && selectedQuantities[index] > 0 && (
+                <div className="pb-5 pt-3">
+                  <label htmlFor={`details-${index}`} className="block text-sm mb-2">{product.detailsLabel} *</label>
+                  <input id={`details-${index}`} name={`details-${index}`} required maxLength={250} className={inputClass} aria-describedby={`details-help-${index}`} />
+                  <p id={`details-help-${index}`} className="text-xs text-stone-500 mt-2">Pour plusieurs formules, indiquez la répartition des boissons. Ne les ajoutez pas une seconde fois dans les boissons à l’unité.</p>
+                </div>
+              )}
+              </React.Fragment>
             ))}
             <p className="text-sm text-stone-600 mt-6 leading-relaxed">Livraison offerte sur Montélimar, pour un minimum de commande de 50 € et selon tournée optimisée. En dehors de Montélimar, frais de livraison en supplément.</p>
           </fieldset>
