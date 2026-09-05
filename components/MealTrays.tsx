@@ -61,7 +61,7 @@ export const MealTrays: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="px-6 py-2.5 bg-henria-gold text-white text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-90 transition-opacity text-center">Appeler</a>
-              <button type="button" disabled className="px-6 py-2.5 border border-stone-300 text-stone-400 bg-stone-100 text-[10px] uppercase tracking-[0.2em] font-bold cursor-not-allowed text-center">Commander</button>
+              <a href="/commande.html" className="px-6 py-2.5 border border-henria-gold text-henria-dark text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-henria-gold hover:text-white transition-colors text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-henria-gold">Commander</a>
             </div>
             <p className="text-stone-400 text-xs italic font-light">
               Envoyez votre demande au plus tard la veille avant 15h. Votre commande est validée uniquement après notre confirmation par e-mail.
