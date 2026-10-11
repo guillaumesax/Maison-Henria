@@ -76,9 +76,11 @@ export const LegalNotice: React.FC = () => {
             <div>
               <h3 className="text-stone-200 uppercase tracking-[0.25em] text-[10px] font-bold mb-4">Données personnelles</h3>
               <p>
-                Le formulaire de demande de devis ouvre l’application email de l’utilisateur avec un message prérempli.
-                Aucune donnée personnelle n’est stockée par le site. Les informations envoyées par email sont utilisées
-                uniquement pour répondre aux demandes de contact et de devis.
+                Les formulaires de demande ouvrent l’application email de l’utilisateur avec un message prérempli.
+                Les informations envoyées par email sont utilisées uniquement pour répondre aux demandes de contact,
+                de devis et de commande. Sur la page de commande, l’utilisateur peut choisir de mémoriser ses coordonnées
+                dans le stockage local de son propre navigateur afin de préremplir une prochaine demande. Cette option est
+                facultative et les informations peuvent être effacées à tout moment en la décochant.
               </p>
             </div>
 

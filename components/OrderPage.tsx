@@ -6,6 +6,46 @@ import { EMAIL_ADDRESS, ORDER_PRODUCTS, PHONE_NUMBER } from '../constants';
 const products = ORDER_PRODUCTS;
 const formulaDrinks = products.filter(product => product.category === 'Boissons');
 const inputClass = 'w-full min-w-0 rounded-sm border border-stone-300 bg-white px-4 py-3 text-base text-henria-dark focus:outline-none focus:ring-2 focus:ring-henria-gold focus:border-henria-gold';
+const customerStorageKey = 'maison-henria-customer-details';
+const customerFieldNames = ['lastName', 'firstName', 'company', 'email', 'phone', 'address', 'postalCode', 'city'] as const;
+
+type CustomerFieldName = typeof customerFieldNames[number];
+type CustomerDetails = Record<CustomerFieldName, string>;
+
+const emptyCustomerDetails: CustomerDetails = {
+  lastName: '',
+  firstName: '',
+  company: '',
+  email: '',
+  phone: '',
+  address: '',
+  postalCode: '',
+  city: '',
+};
+
+export function calculateOrderTotal(quantities: Record<number, number>) {
+  return products.reduce((total, product, index) => {
+    const priceInCents = Math.round(Number(product.price.replace(',', '.')) * 100);
+    const quantity = Number.isSafeInteger(quantities[index]) && quantities[index] > 0 ? quantities[index] : 0;
+    return total + priceInCents * quantity;
+  }, 0);
+}
+
+function loadCustomerDetails(): CustomerDetails {
+  if (typeof window === 'undefined') return emptyCustomerDetails;
+
+  try {
+    const storedDetails = window.localStorage.getItem(customerStorageKey);
+    if (!storedDetails) return emptyCustomerDetails;
+    const parsedDetails = JSON.parse(storedDetails) as Partial<CustomerDetails>;
+    return customerFieldNames.reduce<CustomerDetails>((details, fieldName) => {
+      details[fieldName] = typeof parsedDetails[fieldName] === 'string' ? parsedDetails[fieldName] : '';
+      return details;
+    }, { ...emptyCustomerDetails });
+  } catch {
+    return emptyCustomerDetails;
+  }
+}
 
 // The ordering deadline follows Maison Henria's timezone, wherever the customer is.
 export function earliestDeliveryDate(now = new Date()) {
@@ -19,10 +59,44 @@ export function earliestDeliveryDate(now = new Date()) {
 
 export const OrderPage: React.FC = () => {
   const [selectedQuantities, setSelectedQuantities] = useState<Record<number, number>>({});
+  const [customerDetails, setCustomerDetails] = useState<CustomerDetails>(loadCustomerDetails);
+  const [rememberDetails, setRememberDetails] = useState(() => {
+    try { return typeof window !== 'undefined' && Boolean(window.localStorage.getItem(customerStorageKey)); }
+    catch { return false; }
+  });
+  const [storageStatus, setStorageStatus] = useState('');
   const [error, setError] = useState('');
   const [draft, setDraft] = useState('');
   const [copied, setCopied] = useState(false);
   const [minimumDate, setMinimumDate] = useState(earliestDeliveryDate);
+  const totalInCents = calculateOrderTotal(selectedQuantities);
+  const formattedTotal = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalInCents / 100);
+
+  const saveCustomerDetails = (details: CustomerDetails) => {
+    try {
+      window.localStorage.setItem(customerStorageKey, JSON.stringify(details));
+      setStorageStatus('Vos coordonnées sont mémorisées sur cet appareil.');
+    } catch {
+      setStorageStatus('Votre navigateur n’a pas permis de mémoriser vos coordonnées.');
+    }
+  };
+
+  const updateCustomerDetails = (fieldName: CustomerFieldName, fieldValue: string) => {
+    const nextDetails = { ...customerDetails, [fieldName]: fieldValue };
+    setCustomerDetails(nextDetails);
+    if (rememberDetails) saveCustomerDetails(nextDetails);
+  };
+
+  const handleRememberDetails = (checked: boolean) => {
+    setRememberDetails(checked);
+    if (checked) {
+      saveCustomerDetails(customerDetails);
+      return;
+    }
+
+    try { window.localStorage.removeItem(customerStorageKey); } catch { /* Storage can be unavailable. */ }
+    setStorageStatus('Les coordonnées mémorisées ont été effacées de cet appareil.');
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -56,10 +130,12 @@ export const OrderPage: React.FC = () => {
       return;
     }
     const date = value('delivery').split('-').reverse().join('/');
+    if (rememberDetails) saveCustomerDetails(customerDetails);
     const body = [
       'Bonjour Maison Henria,', '', 'Je souhaite passer la commande suivante :', '',
       `Date de livraison souhaitée : ${date}`, '',
       ...products.flatMap((product, index) => quantities[index] > 0 ? [`${quantities[index]} × ${product.name}${product.description ? ` (${product.description})` : ''} — ${product.price} € TTC / unité`, ...(product.detailsLabel ? formulaDrinks.flatMap((drink, drinkIndex) => drinkQuantities(index)[drinkIndex] > 0 ? [`  Boisson incluse : ${drinkQuantities(index)[drinkIndex]} × ${drink.name}`] : []) : [])] : []),
+      '', `Total des articles : ${formattedTotal} TTC (hors éventuels frais de livraison)`,
       '', 'Coordonnées et livraison :',
       `Nom : ${value('lastName')}`, `Prénom : ${value('firstName')}`,
       ...(value('company') ? [`Entreprise : ${value('company')}`] : []),
@@ -131,6 +207,13 @@ export const OrderPage: React.FC = () => {
               )}
               </React.Fragment>
             ))}
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 border-t-2 border-henria-gold pt-6" aria-live="polite" aria-atomic="true">
+              <div>
+                <p className="font-serif text-xl text-henria-dark">Total des articles</p>
+                <p className="text-xs text-stone-500 mt-1">TTC, hors éventuels frais de livraison.</p>
+              </div>
+              <p className="font-serif text-3xl text-henria-dark tabular-nums">{formattedTotal}</p>
+            </div>
             <p className="text-sm text-stone-600 mt-6 leading-relaxed">Livraison offerte sur Montélimar, pour un minimum de commande de 50 € et selon tournée optimisée. En dehors de Montélimar, frais de livraison en supplément.</p>
           </fieldset>
 
@@ -152,12 +235,22 @@ export const OrderPage: React.FC = () => {
               ].map(([name, label, type, autoComplete]) => (
                 <div key={name}>
                   <label htmlFor={name} className="block text-sm mb-2">{label}{name === 'company' ? ' (facultatif)' : ' *'}</label>
-                  <input id={name} name={name} type={type} autoComplete={autoComplete} required={name !== 'company'} maxLength={name === 'address' ? 250 : 120} className={inputClass} />
+                  <input id={name} name={name} type={type} autoComplete={autoComplete} required={name !== 'company'} maxLength={name === 'address' ? 250 : 120} value={customerDetails[name as CustomerFieldName]} onChange={event => updateCustomerDetails(name as CustomerFieldName, event.target.value)} className={inputClass} />
                 </div>
               ))}
               <div className="sm:col-span-2">
                 <label htmlFor="notes" className="block text-sm mb-2">Précisions (facultatif)</label>
                 <textarea id="notes" name="notes" rows={3} maxLength={1000} placeholder="Régimes alimentaires, allergies, indications d’accès…" className={inputClass} />
+              </div>
+              <div className="sm:col-span-2 border-t border-stone-200 pt-6">
+                <label className="flex items-start gap-3 text-sm leading-relaxed cursor-pointer">
+                  <input type="checkbox" checked={rememberDetails} onChange={event => handleRememberDetails(event.target.checked)} className="mt-0.5 w-5 h-5 shrink-0 accent-henria-gold" />
+                  <span>
+                    <span className="font-bold text-henria-dark">Mémoriser mes coordonnées sur cet appareil</span>
+                    <span className="block text-stone-500 mt-1">Elles serviront à préremplir votre prochaine demande. Ne cochez pas cette option sur un appareil partagé.</span>
+                  </span>
+                </label>
+                {storageStatus && <p className="mt-3 text-sm text-stone-600" aria-live="polite">{storageStatus}</p>}
               </div>
             </div>
           </fieldset>
