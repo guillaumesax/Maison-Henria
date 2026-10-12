@@ -6,6 +6,7 @@ import { MealTrays } from './components/MealTrays';
 import { MoreChoice } from './components/MoreChoice';
 import { Subscriptions } from './components/Subscriptions';
 import { Events } from './components/Events';
+import { PartnerNetwork } from './components/PartnerNetwork';
 import { Story } from './components/Story';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -21,6 +22,7 @@ function App() {
         <MoreChoice />
         <Subscriptions />
         <Events />
+        <PartnerNetwork />
         <Story />
         <ContactSection />
       </main>

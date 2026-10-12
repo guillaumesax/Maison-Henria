@@ -18,6 +18,8 @@ export default defineConfig(({ mode }) => {
           order: path.resolve(__dirname, 'commande.html'),
           legalNotice: path.resolve(__dirname, 'mentions-legales.html'),
           termsAndConditions: path.resolve(__dirname, 'cgv.html'),
+          masEylieux: path.resolve(__dirname, 'le-mas-deylieux.html'),
+          guillaumeSax: path.resolve(__dirname, 'guillaumesax.html'),
         },
       },
     },
