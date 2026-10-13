@@ -20,12 +20,10 @@ export const LegalNotice: React.FC = () => {
     <main className="min-h-screen bg-henria-dark text-stone-400 py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-4xl">
-          <a
-            href="/"
-            className="inline-flex mb-12 text-[10px] uppercase tracking-[0.3em] text-stone-400 hover:text-henria-gold transition-colors"
-          >
-            ← Retour à l’accueil
-          </a>
+          <nav className="flex flex-wrap gap-x-6 gap-y-3 mb-12 text-[10px] uppercase tracking-[0.3em]" aria-label="Navigation des pages légales">
+            <a href="/" className="text-stone-400 hover:text-henria-gold focus-visible:text-henria-gold transition-colors">← Retour à l’accueil</a>
+            <a href="/cgv.html" className="text-stone-400 hover:text-henria-gold focus-visible:text-henria-gold transition-colors">CGV</a>
+          </nav>
           <p className="text-[10px] uppercase tracking-[0.4em] text-henria-gold font-bold mb-4">Informations légales</p>
           <h2 className="font-serif text-3xl md:text-4xl text-white mb-8">Mentions légales</h2>
 
@@ -77,10 +75,13 @@ export const LegalNotice: React.FC = () => {
               <h3 className="text-stone-200 uppercase tracking-[0.25em] text-[10px] font-bold mb-4">Données personnelles</h3>
               <p>
                 Les formulaires de demande ouvrent l’application email de l’utilisateur avec un message prérempli.
-                Les informations envoyées par email sont utilisées uniquement pour répondre aux demandes de contact,
-                de devis et de commande. Sur la page de commande, l’utilisateur peut choisir de mémoriser ses coordonnées
-                dans le stockage local de son propre navigateur afin de préremplir une prochaine demande. Cette option est
-                facultative et les informations peuvent être effacées à tout moment en la décochant.
+                Les informations transmises sont utilisées pour les demandes de contact, devis et commandes, leur gestion,
+                l’exécution des prestations, la facturation, la comptabilité et le suivi de la relation client. La communication
+                commerciale n’est effectuée que lorsqu’elle est autorisée. Sur la page de commande, l’utilisateur peut choisir
+                de mémoriser ses coordonnées dans le stockage local de son propre navigateur afin de préremplir une prochaine
+                demande. Cette option est facultative et les informations peuvent être effacées à tout moment en la décochant.
+                Pour exercer ses droits relatifs à ses données personnelles, il peut écrire à{' '}
+                <a className="text-stone-300 hover:text-henria-gold transition-colors" href={`mailto:${EMAIL_ADDRESS}`}>{EMAIL_ADDRESS}</a>.
               </p>
             </div>
 
@@ -95,7 +96,10 @@ export const LegalNotice: React.FC = () => {
             <div>
               <h3 className="text-stone-200 uppercase tracking-[0.25em] text-[10px] font-bold mb-4">Médiation de la consommation</h3>
               <p>
-                Informations relatives au médiateur de la consommation à compléter si l’activité s’adresse à des consommateurs particuliers.
+                Après une réclamation préalable adressée à Maison Henria, les clients consommateurs peuvent saisir gratuitement
+                le médiateur de la consommation : CM2C — Centre de la Médiation de la Consommation de Conciliateurs de Justice,
+                49 rue de Ponthieu, 75008 Paris — 01 89 47 00 14 —{' '}
+                <a className="text-stone-300 hover:text-henria-gold transition-colors" href="https://www.cm2c.net" target="_blank" rel="noopener noreferrer">www.cm2c.net</a>.
               </p>
             </div>
           </div>
