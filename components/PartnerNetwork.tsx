@@ -43,10 +43,10 @@ export const PartnerNetwork: React.FC = () => {
             <a
               key={partner.name}
               href={partner.href}
-              className="group grid grid-cols-[80px_minmax(0,1fr)] overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-stone-200/70 transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-henria-gold"
+              className="group overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-stone-200/70 transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-henria-gold"
               aria-label={`Découvrir ${partner.name}`}
             >
-              <div className="overflow-hidden bg-stone-200">
+              <div className="aspect-[3/1] overflow-hidden bg-stone-200">
                 <img
                   src={partner.image}
                   alt=""
