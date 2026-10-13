@@ -24,29 +24,29 @@ const partners = [
 
 export const PartnerNetwork: React.FC = () => {
   return (
-    <section id="reseau" className="bg-[#f4f0e8] py-16 md:py-24 scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+    <section id="reseau" className="bg-[#f4f0e8] py-8 md:py-10 scroll-mt-24">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto mb-6 max-w-2xl text-center">
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-henria-gold">
             Les belles adresses
           </span>
-          <h2 className="mt-4 font-serif text-3xl leading-tight text-henria-dark md:text-5xl">
+          <h2 className="mt-2 font-serif text-2xl leading-tight text-henria-dark">
             Notre réseau de professionnels
           </h2>
-          <p className="mt-5 text-base font-light leading-relaxed text-stone-600 md:text-lg">
+          <p className="mt-3 text-sm font-light leading-relaxed text-stone-600">
             Pour vous accompagner dans l’organisation de vos événements, Maison Henria vous fait découvrir des professionnels et des lieux de réception de la région.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+        <div className="grid gap-4 md:grid-cols-2">
           {partners.map((partner) => (
             <a
               key={partner.name}
               href={partner.href}
-              className="group overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-stone-200/70 transition duration-500 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-henria-gold"
+              className="group grid grid-cols-[80px_minmax(0,1fr)] overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-stone-200/70 transition-shadow hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-henria-gold"
               aria-label={`Découvrir ${partner.name}`}
             >
-              <div className="aspect-[4/3] overflow-hidden bg-stone-200">
+              <div className="overflow-hidden bg-stone-200">
                 <img
                   src={partner.image}
                   alt=""
@@ -56,16 +56,16 @@ export const PartnerNetwork: React.FC = () => {
                   style={{ objectPosition: partner.imagePosition }}
                 />
               </div>
-              <div className="p-7 md:p-8">
+              <div className="min-w-0 p-4">
                 <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-henria-gold">
                   {partner.category}
                 </p>
-                <div className="mt-3 flex items-start justify-between gap-5">
-                  <h3 className="font-serif text-2xl text-henria-dark md:text-3xl">{partner.name}</h3>
-                  <ArrowUpRight className="mt-1 shrink-0 text-henria-gold transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" size={22} />
+                <div className="mt-2 flex items-start justify-between gap-2">
+                  <h3 className="font-serif text-lg text-henria-dark">{partner.name}</h3>
+                  <ArrowUpRight className="mt-1 shrink-0 text-henria-gold" size={16} />
                 </div>
-                <p className="mt-4 font-light leading-relaxed text-stone-600">{partner.description}</p>
-                <span className="mt-6 inline-block border-b border-henria-gold pb-1 text-[10px] font-bold uppercase tracking-[0.25em] text-henria-dark">
+                <p className="mt-2 text-xs font-light leading-relaxed text-stone-600">{partner.description}</p>
+                <span className="mt-3 inline-block border-b border-henria-gold pb-1 text-[9px] font-bold uppercase tracking-[0.2em] text-henria-dark">
                   Découvrir son univers
                 </span>
               </div>
