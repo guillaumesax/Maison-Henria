@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
 
       {/* Contenu - Centré verticalement dans le h-screen */}
       <div className="relative z-10 text-center px-6 max-w-5xl flex flex-col items-center">
-        {/* Logo - Taille premium conservée */}
+        {/* Logo */}
         <div className="mb-0 opacity-0 animate-[logoEntrance_1.2s_ease-out_forwards]">
           <img
             src={logoUrl}
@@ -49,12 +49,12 @@ export const Hero: React.FC = () => {
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            className="w-72 md:w-[480px] lg:w-[580px] h-auto select-none animate-[logoBreathe_8s_ease-in-out_infinite_1.2s]"
+            className="w-48 md:w-80 lg:w-96 h-auto select-none animate-[logoBreathe_8s_ease-in-out_infinite_1.2s]"
           />
         </div>
 
         {/* Bloc inférieur : Texte + Boutons */}
-        <div className="flex flex-col items-center -mt-12 md:-mt-16">
+        <div className="flex flex-col items-center mt-6 md:mt-8">
           {/* Phrase d'accroche - Rapprochée pour l'unité visuelle */}
           <div className="max-w-xl mx-auto mb-8 opacity-0 animate-[fadeIn_1s_ease-out_forwards_0.3s]">
             <p className="text-stone-500 text-lg md:text-xl lg:text-2xl leading-relaxed font-light tracking-wide">

@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
       }`}
     >
       <a href="/" className="flex items-center group" aria-label="Accueil Maison Henria">
-        <div className={`transition-all duration-500 flex items-center overflow-hidden ${isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-24'}`}>
+        <div className={`transition-all duration-500 flex items-center overflow-hidden ${isScrolled ? 'h-6 md:h-8' : 'h-10 md:h-14'}`}>
           <img 
             src={logoUrl} 
             alt={BRAND_NAME} 
