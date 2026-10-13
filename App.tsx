@@ -3,7 +3,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Presentation } from './components/Presentation';
 import { MealTrays } from './components/MealTrays';
-import { MoreChoice } from './components/MoreChoice';
 import { Subscriptions } from './components/Subscriptions';
 import { Events } from './components/Events';
 import { PartnerNetwork } from './components/PartnerNetwork';
@@ -19,7 +18,6 @@ function App() {
         <Hero />
         <Presentation />
         <MealTrays />
-        <MoreChoice />
         <Subscriptions />
         <Events />
         <PartnerNetwork />
