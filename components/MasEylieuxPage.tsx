@@ -35,7 +35,7 @@ export const MasEylieuxPage: React.FC = () => {
           <h2 className="font-serif text-3xl text-henria-dark md:text-4xl">Six gîtes pour réunir ses proches</h2>
           <div className="mt-6 space-y-6 text-lg font-light leading-[1.85] text-stone-600">
             <p>Le Mas d’Eylieux dispose de six gîtes indépendants, chacun équipé de sa propre cuisine et de sa salle d’eau.</p>
-            <p>Le domaine propose 21 couchages standards, avec une capacité pouvant atteindre 25 personnes grâce à des couchages d’appoint, selon la configuration retenue.</p>
+            <p>Le domaine totalise exactement 25 couchages, répartis entre les six gîtes. Leur attribution est précisée selon la configuration du groupe.</p>
             <p>Cette organisation permet à chacun de préserver son intimité tout en partageant les espaces extérieurs et les moments de convivialité.</p>
           </div>
         </div>
